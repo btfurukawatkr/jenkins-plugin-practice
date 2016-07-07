@@ -1,17 +1,24 @@
-–GitbucketPullRequestBuilder‚Ì\‘z
+ï¼ŠGitbucketPullRequestBuilderã®æ§‹æƒ³
 
-“ü—Í
-EGitbucketƒvƒƒWƒFƒNƒgURL
-EGitƒŠƒ|ƒWƒgƒŠURL
-Eƒrƒ‹ƒhƒgƒŠƒK[
-@¨PRƒCƒxƒ“ƒg‚ðƒLƒƒƒbƒ`‚·‚é‚½‚ß‚Ìƒ`ƒFƒbƒNƒ{ƒbƒNƒX
+å…¥åŠ›
+ãƒ»Gitbucketãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆURL
+ãƒ»Gitãƒªãƒã‚¸ãƒˆãƒªURL
+ãƒ»ãƒ“ãƒ«ãƒ‰ãƒˆãƒªã‚¬ãƒ¼
+ã€€â†’PRã‚¤ãƒ™ãƒ³ãƒˆã‚’ã‚­ãƒ£ãƒƒãƒã™ã‚‹ãŸã‚ã®ãƒã‚§ãƒƒã‚¯ãƒœãƒƒã‚¯ã‚¹
 
-ŽÀs
-EPRì¬‚ðŒ_‹@‚Éƒrƒ‹ƒh‚ðŽÀs
-@¨ƒrƒ‹ƒh‚·‚éî•ñ‚ÍPRî•ñ‚©‚çƒRƒ~ƒbƒg‚ÌƒnƒbƒVƒ…’l‚ðŽæ“¾‚·‚é
-@¨ƒrƒ‹ƒh‘O‚ÉƒXƒe[ƒ^ƒX‚ðPENDING‚ÉÝ’è
-@¨ƒrƒ‹ƒhŒã‚ÉƒXƒe[ƒ^ƒX‚ðSUCCESS/FAIL‚ÉÝ’è
+å®Ÿè¡Œ
+ãƒ»PRä½œæˆã‚’å¥‘æ©Ÿã«ãƒ“ãƒ«ãƒ‰ã‚’å®Ÿè¡Œ
+ã€€â†’ãƒ“ãƒ«ãƒ‰ã™ã‚‹æƒ…å ±ã¯PRæƒ…å ±ã‹ã‚‰ã‚³ãƒŸãƒƒãƒˆã®ãƒãƒƒã‚·ãƒ¥å€¤ã‚’å–å¾—ã™ã‚‹
+ã€€â†’ãƒ“ãƒ«ãƒ‰å‰ã«ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’PENDINGã«è¨­å®š
+ã€€â†’ãƒ“ãƒ«ãƒ‰å¾Œã«ã‚¹ãƒ†ãƒ¼ã‚¿ã‚¹ã‚’SUCCESS/FAILã«è¨­å®š
 
 
+---
 
+http://gitbucket/api/v3/repos/:group/:repository/statuses/:commit-hash
+
+{
+  "state": "success", // pending,failure
+  "context": "GitBucketPullRequestBuilder"
+}
 
