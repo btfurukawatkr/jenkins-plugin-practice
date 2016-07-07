@@ -1,0 +1,83 @@
+jenkins-pluginを作る
+========================
+
+○まずは本家のプラグインチュートリアルを参考に。
+https://wiki.jenkins-ci.org/display/JENKINS/Plugin+tutorial
+※日本語版の内容が少し古いみたいなので、英語版で
+
+・mavenの設定
+settings.xmlに以下を追加
+
+<settings>
+  <pluginGroups>
+    <pluginGroup>org.jenkins-ci.tools</pluginGroup>
+  </pluginGroups>
+
+  <profiles>
+    <!-- Give access to Jenkins plugins -->
+    <profile>
+      <id>jenkins</id>
+      <activation>
+        <activeByDefault>true</activeByDefault> <!-- change this to false, if you don't like to have it on per default -->
+      </activation>
+      <repositories>
+        <repository>
+          <id>repo.jenkins-ci.org</id>
+          <url>http://repo.jenkins-ci.org/public/</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <id>repo.jenkins-ci.org</id>
+          <url>http://repo.jenkins-ci.org/public/</url>
+        </pluginRepository>
+      </pluginRepositories>
+    </profile>
+  </profiles>
+  <mirrors>
+    <mirror>
+      <id>repo.jenkins-ci.org</id>
+      <url>http://repo.jenkins-ci.org/public/</url>
+      <mirrorOf>m.g.o-public</mirrorOf>
+    </mirror>
+  </mirrors>
+</settings>
+
+・プラグインプロジェクトの作成
+適当なディレクトリで以下のmavenコマンドを実行
+
+$ mvn -U org.jenkins-ci.tools:maven-hpi-plugin:create
+
+GroupIdとArtifactIdの入力を求められるので、それぞれ入力する。
+
+・eclipseにプロジェクトをインポート
+※既存のMavenプロジェクトとしてインポートするなと記載があったので実施した手順
+作成したプロジェクトのディレクトリへ移動し、以下のコマンドを実行
+$ mvn -DdownloadSources=true -DdownloadJavadocs=true -DoutputDirectory=target/eclipse-classes -Declipse.workspace=/path/to/workspace eclipse:eclipse eclipse:configure-workspace
+
+※途中、jenkins-war-1.625.3-war-for-test.jarという約60MBほどのファイルのダウンロードでmvnコマンドが途中で止まった、、、
+　会社のネットワークの問題？
+　settings.xmlのリポジトリのURLをHTTPSに修正して再実行すると問題なく進めた。
+　一応、備忘として残しておく。
+
+あとは好きなようにビルド手順・ビルドトリガーなどのジョブ設定を追加する
+
+・他プラグインへの依存
+
+他のプラグインに依存するものを作る場合はpom.xmlのdependenciesに依存するプラグインを追加すればよい
+
+
+:::TODO:::
+・ジョブプロパティ
+
+hudson.model.JobProperty<Job<?, ?>>をextendするクラスをつくり、クラスフィールドに追加するプロパティの領域を定義する。
+extendしたクラスに対応するconfig.jellyをsrc/main/resources配下に作成する
+
+・ビルドトリガー
+
+
+
+・ビルド手順
+
+
+

@@ -1,0 +1,17 @@
+＊GitbucketPullRequestBuilderの構想
+
+入力
+・GitbucketプロジェクトURL
+・GitリポジトリURL
+・ビルドトリガー
+　→PRイベントをキャッチするためのチェックボックス
+
+実行
+・PR作成を契機にビルドを実行
+　→ビルドする情報はPR情報からコミットのハッシュ値を取得する
+　→ビルド前にステータスをPENDINGに設定
+　→ビルド後にステータスをSUCCESS/FAILに設定
+
+
+
+
