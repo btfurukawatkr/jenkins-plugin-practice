@@ -63,6 +63,10 @@ $ mvn -DdownloadSources=true -DdownloadJavadocs=true -DoutputDirectory=target/ec
 
 あとは好きなようにビルド手順・ビルドトリガーなどのジョブ設定を追加する
 
+・プラグインの実行
+
+$ mvn hpi:run
+
 ・他プラグインへの依存
 
 他のプラグインに依存するものを作る場合はpom.xmlのdependenciesに依存するプラグインを追加すればよい
