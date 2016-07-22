@@ -1,5 +1,7 @@
 package com.guchuan.plugin.jenkins.gitbucket.action;
 
+import org.apache.commons.logging.LogFactory;
+
 //import java.io.IOException;
 //import java.util.ArrayList;
 //import java.util.List;
@@ -14,7 +16,9 @@ package com.guchuan.plugin.jenkins.gitbucket.action;
 //import org.apache.http.impl.client.HttpClientBuilder;
 //import org.apache.http.message.BasicHeader;
 //import org.apache.http.message.BasicNameValuePair;
-//import org.kohsuke.stapler.StaplerRequest;
+import org.kohsuke.stapler.StaplerRequest;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import hudson.Extension;
 import hudson.model.UnprotectedRootAction;
@@ -23,7 +27,13 @@ import hudson.model.UnprotectedRootAction;
 @Extension
 public class HogeAction implements UnprotectedRootAction {
 
-//	public void doIndex(StaplerRequest req) throws ClientProtocolException, IOException {
+	Logger log = LoggerFactory.getLogger(this.getClass().getName());
+
+	public void doIndex(StaplerRequest req) {
+		log.info("recieved web-hook");
+	}
+
+	//	public void doIndex(StaplerRequest req) throws ClientProtocolException, IOException {
 //        String payload = req.getParameter("payload");
 //        if (payload == null) {
 //            return;
