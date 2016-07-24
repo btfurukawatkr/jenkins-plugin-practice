@@ -28,6 +28,11 @@ public class SampleTrigger extends Trigger<AbstractProject<?, ?>> {
         return (GitBucketPushTriggerDescriptor) super.getDescriptor();
     }
 
+    @Override
+    public void start(AbstractProject project, boolean newInstance) {
+        LOGGER.info("start job-build");
+    }
+
     @Extension
     public static class GitBucketPushTriggerDescriptor extends TriggerDescriptor {
 
